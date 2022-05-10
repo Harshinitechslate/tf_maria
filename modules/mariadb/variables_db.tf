@@ -1,13 +1,13 @@
 variable "mariadb_name" {
     description = "Name of the mariadb server"
     type =  string
-    default = "example-mariadb-server"
+    default = "mariadb-server-test-001"
 }
 
 variable "location" {
     description = "location where the resources will be created"
     type =  string
-    default = "westeurope"
+    default = ""
 }
 
 variable "rg_name" {
@@ -29,23 +29,13 @@ variable "administrator_login_password" {
 }
 
 variable "storage_profile" {
-default = {
-    storage_mb                      = 102400
-    backup_retention_days           = 15
-    geo_redundant_backup_enabled    = false
-    auto_grow_enabled               = true
-    public_network_access_enabled   = true
-    ssl_enforcement_enabled         = true
-  }
-
-  type = object(
-    {
-        storage_mb                    = number
-        backup_retention_days         = number
-        geo_redundant_backup_enabled  = bool
-        auto_grow_enabled             = bool
-        public_network_access_enabled = bool
-        ssl_enforcement_enabled       = bool
-   }
-      )
+    default = {
+        storage_mb                      = 102400
+        backup_retention_days           = 15
+        geo_redundant_backup_enabled    = false
+        auto_grow_enabled               = true
+        public_network_access_enabled   = true
+        ssl_enforcement_enabled         = true
+        ssl_minimal_tls_version_enforced  = "TLS1_1"
+    }
 }
