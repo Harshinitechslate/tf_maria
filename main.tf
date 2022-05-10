@@ -8,5 +8,6 @@ resource "azurerm_resource_group" "example" {
 }
 
 module "azurerm_mariadb_server" {
-    source = "../module\mariadb"
+  source = "./modules/mariadb"
+  rg_name = azurerm_resource_group.example.name
 }

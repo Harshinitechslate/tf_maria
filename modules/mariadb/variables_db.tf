@@ -7,13 +7,13 @@ variable "mariadb_name" {
 variable "location" {
     description = "location where the resources will be created"
     type =  string
-    default = "azurerm_resource_group.example.location"
+    default = "westeurope"
 }
 
 variable "rg_name" {
     description = "Name of the resource group"
     type =  string
-    default = "azurerm_resource_group.example.name"
+    default = ""
 }
 
 variable "administrator_username" {
@@ -34,7 +34,7 @@ default = {
     backup_retention_days           = 15
     geo_redundant_backup_enabled    = false
     auto_grow_enabled               = true
-    public_network_access_enabled   = false
+    public_network_access_enabled   = true
     ssl_enforcement_enabled         = true
   }
 
